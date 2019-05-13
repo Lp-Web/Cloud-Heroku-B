@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HerokuCloud:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>HerokuCloud</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="HerokuCloud.war">
+      <element id="artifact" artifact-name="HerokuCloud:war exploded" />
+    </root>
+  </artifact>
+</component>
