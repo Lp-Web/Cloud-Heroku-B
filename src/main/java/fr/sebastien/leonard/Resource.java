@@ -22,13 +22,13 @@ public class Resource {
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
         String text = "Hello, World! " + client.target(System.getenv("URI"));
-        WebTarget target = client.target(System.getenv("URI"));
-        Invocation.Builder builder = target.request(MediaType.APPLICATION_JSON);
-        ArrayList<Book> response = builder.get(ArrayList.class);
+        //WebTarget target = client.target(System.getenv("URI"));
+        //Invocation.Builder builder = target.request(MediaType.APPLICATION_JSON);
+        //ArrayList<Book> response = builder.get(ArrayList.class);
 
-        for(Book book : response) {
-            System.out.println(book.getId() + " " + book.getTitle());
-        }
+        //for(Book book : response) {
+            //System.out.println(book.getId() + " " + book.getTitle());
+        //}
 
         return text;
     }
