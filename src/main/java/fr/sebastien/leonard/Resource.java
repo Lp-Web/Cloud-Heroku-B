@@ -22,13 +22,16 @@ public class Resource {
     private Client client = ClientBuilder.newClient();
 
     @PUT
-    @Produces(MediaType.TEXT_PLAIN)
     public Response execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        System.out.println("A");
 
         try {
             if(request.getParameter("idToAdd") == null || request.getParameter("numberToAdd") == null) {
                 return Response.status(400).entity("You must give the idToAdd and numberToAdd in parameters of the request").build();
             }
+
+            System.out.println("B");
 
             Long id = Long.parseLong(request.getParameter("idToAdd"));
             Long add = Long.parseLong(request.getParameter("numberToAdd"));
@@ -38,9 +41,14 @@ public class Resource {
                     .queryParam("idToAdd", id)
                     .queryParam("numberToAdd", add);
 
+            System.out.println("C");
+
             Invocation.Builder builder = target.request();
             return builder.put(null);
         } catch (Exception ex) {
+
+            System.out.println("D");
+
             return Response.status(400).entity("You must give the idToId, and numberToId in parameters of the request").build();
         }
 
