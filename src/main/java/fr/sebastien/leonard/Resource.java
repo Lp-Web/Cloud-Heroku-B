@@ -1,5 +1,6 @@
 package fr.sebastien.leonard;
 
+import com.google.gson.Gson;
 import fr.sebastien.leonard.model.Book;
 
 import javax.ws.rs.GET;
@@ -18,15 +19,17 @@ import java.util.List;
 public class Resource {
 
     private Client client = ClientBuilder.newClient();
+    private Gson gson = new Gson();
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
         WebTarget target = client.target(System.getenv("URI"));
         Invocation.Builder builder = target.request();
-        String response = builder.get(String.class);
-        
-        return response;
+        String json = builder.get(String.class);
+
+        List<Book> list = this.gson.fromJson(json, ArrayList.class);
+        return list.size() + " ";
     }
 
 }
