@@ -21,7 +21,7 @@ public class Resource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
-
+        String text = "Hello, World! " + client.target(System.getenv("URI"));
         WebTarget target = client.target(System.getenv("URI"));
         Invocation.Builder builder = target.request(MediaType.APPLICATION_JSON);
         ArrayList<Book> response = builder.get(ArrayList.class);
@@ -30,7 +30,7 @@ public class Resource {
             System.out.println(book.getId() + " " + book.getTitle());
         }
 
-        return "Hello, World!";
+        return text;
     }
 
 }
