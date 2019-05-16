@@ -11,8 +11,8 @@ import javax.ws.rs.core.Response;
 public class Resource {
 
     @GET
-    public Response onGet() {
-        return Response.status(200).entity("Hello, World!").build();
+    public Response onGet(HttpServletRequest request) {
+        return Response.status(200).entity("Hello, World!" + request.getServletPath()).build();
     }
 
     /*@PUT
