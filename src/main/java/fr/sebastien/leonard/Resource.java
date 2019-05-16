@@ -12,7 +12,7 @@ import javax.ws.rs.client.*;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
 
-@Path("")
+@Path("/hello")
 public class Resource {
 
     @GET
