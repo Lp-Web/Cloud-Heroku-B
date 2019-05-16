@@ -12,7 +12,7 @@ public class Resource {
     @PUT
     public Response onPut(HttpServletRequest request) {
 
-        return Response.status(200).entity("Hello, World! " + request.getServletPath()).build();
+        return Response.status(200).entity("Hello, World!").build();
     }
 
 }
