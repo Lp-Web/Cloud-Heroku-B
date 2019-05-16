@@ -26,7 +26,7 @@ public class Resource {
 
         Response response = target.request().buildPut(null).invoke();
 
-        return Response.status(200).entity(response.getEntity()).build();
+        return Response.status(200).entity(response.getStatus() + " ").build();
     }
 
 }
