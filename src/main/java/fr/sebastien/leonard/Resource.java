@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 
@@ -11,14 +12,11 @@ import javax.ws.rs.core.Response;
 public class Resource {
 
     @GET
-    public Response onGet(HttpServletRequest request) {
-        return Response.status(200).entity("Hello, World!" + request.getServletPath()).build();
+    public Response onGet(
+        @QueryParam("idToAdd") String id,
+        @QueryParam("numberToAdd") Integer number
+    ) {
+        return Response.status(200).entity("Hello, World!" + id + " -> " + number).build();
     }
-
-    /*@PUT
-    public Response onPut(HttpServletRequest request) {
-
-        return Response.status(200).entity("Hello, World!").build();
-    }*/
 
 }
