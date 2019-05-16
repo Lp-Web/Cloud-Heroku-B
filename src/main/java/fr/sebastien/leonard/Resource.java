@@ -24,9 +24,9 @@ public class Resource {
                 .queryParam("idToAdd", id)
                 .queryParam("numberToAdd", number);
 
-        //Response response = target.request().buildPut(null).invoke();
+        Response response = target.request().buildPut(null).invoke();
 
-        return Response.status(200).entity("Hello !").build();
+        return Response.status(200).entity(response.getEntity()).build();
     }
 
 }
