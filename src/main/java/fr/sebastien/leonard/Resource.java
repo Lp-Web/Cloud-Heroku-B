@@ -21,11 +21,13 @@ public class Resource {
                 .queryParam("idToAdd", id)
                 .queryParam("numberToAdd", number);
 
+        return target.request().put(null);
+
         //target.request().buildPut(null).invoke();
 
         //Response response = target.request().buildPut(null).invoke();
 
-        return Response.status(200).entity(System.getenv("URI")).build();
+        //return Response.status(200).entity(System.getenv("URI")).build();
     }
 
 }
