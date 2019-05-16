@@ -8,6 +8,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
 
 @Path("/")
 public class Resource {
@@ -24,12 +25,9 @@ public class Resource {
                 .queryParam("idToAdd", id)
                 .queryParam("numberToAdd", number);
 
-        return target.request().put(Entity.entity(String.class, MediaType.APPLICATION_JSON));
-
+        return target.request().put(Entity.entity(Book.class, MediaType.APPLICATION_JSON));
         //target.request().buildPut(null).invoke();
-
         //Response response = target.request().buildPut(null).invoke();
-
         //return Response.status(200).entity(System.getenv("URI")).build();
     }
 
