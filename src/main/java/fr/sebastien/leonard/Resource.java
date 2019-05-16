@@ -1,9 +1,12 @@
 package fr.sebastien.leonard;
 
+import fr.sebastien.leonard.model.Book;
+
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.client.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/")
@@ -21,7 +24,7 @@ public class Resource {
                 .queryParam("idToAdd", id)
                 .queryParam("numberToAdd", number);
 
-        return target.request().put(null);
+        return target.request().put(Entity.entity(Book.class, MediaType.APPLICATION_JSON));
 
         //target.request().buildPut(null).invoke();
 
