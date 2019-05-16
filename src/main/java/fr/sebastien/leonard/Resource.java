@@ -24,7 +24,7 @@ public class Resource {
                 .queryParam("idToAdd", id)
                 .queryParam("numberToAdd", number);
 
-        return target.request().put(Entity.entity(Book.class, MediaType.APPLICATION_JSON));
+        return target.request().put(Entity.entity(String.class, MediaType.APPLICATION_JSON));
 
         //target.request().buildPut(null).invoke();
 
