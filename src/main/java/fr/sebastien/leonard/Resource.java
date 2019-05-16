@@ -20,9 +20,4 @@ public class Resource {
         return Response.status(200).entity("Hello, World!").build();
     }
 
-    @PUT
-    public Response onPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        return Response.status(200).entity("A").build();
-    }
-
 }
