@@ -20,17 +20,12 @@ public class Resource {
         @QueryParam("idToAdd") String id,
         @QueryParam("numberToAdd") Integer number
     ) {
-        WebTarget target = client
+        return client
                 .target(System.getenv("URI"))
                 .queryParam("idToAdd", id)
-                .queryParam("numberToAdd", number);
-
-
-
-        return target.request().put(Entity.entity(new Book(), MediaType.APPLICATION_JSON));
-        //target.request().buildPut(null).invoke();
-        //Response response = target.request().buildPut(null).invoke();
-        //return Response.status(200).entity(System.getenv("URI")).build();
+                .queryParam("numberToAdd", number)
+                .request()
+                .put(Entity.entity(new Book(), MediaType.APPLICATION_JSON));
     }
 
 }
